@@ -1,4 +1,4 @@
-# AAP-Cluster Installation along with Load Balancer
+# AAP-Cluster Installation along with Load Balancer on RHEL 8
 
 Here in this cluster we have included 3 Controller nodes, 1 Database node and 2 Automation Hubs. You can create the cluster as per your requirements as well.
 To start with the installation lets go ahead and take a look at the Prerequisites we are going to need.
@@ -11,6 +11,7 @@ To start with the installation lets go ahead and take a look at the Prerequisite
 | 3.  | curl/wget|
 | 4.  | vim |
 | 5.  | ansible |
+| 6.  | telnet |
   
 ## Installation:
 After checking prerequistes lets turn to the Inventory File. I have uploaded it to the repo as well. 
