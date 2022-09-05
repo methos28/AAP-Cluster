@@ -1,11 +1,11 @@
-## Installing HAPROXY for Load Balancing
+# Installing HAPROXY for Load Balancing
 
 After the successful installation if you want you can set a load balancer in between them to redirect the incoming traffic.
 You need to run the aap-haproxy-fix.yml playbook on the controller nodes first before you edit the configuration file.
 
 > NOTE: Make sure that you have the IPs and Hostnames of your controller servers in the hosts file in /etc/hosts, If you do not add those servers in that file the load balancer will not work.
 
-### Creating Self-Signed Certificate
+## Creating Self-Signed Certificate
 Enter Commands below:
 ```
 openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out ./myserver.crt -keyout ./myserver.key
