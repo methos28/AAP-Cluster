@@ -32,8 +32,13 @@ Kindly follow path as given below for smooth installation,
 > References:
 >
 > https://youtu.be/TkiGgUkn_PI
+> 
 > https://www.digitalocean.com/community/tutorials/haproxy-ssl-tls-warning-setting-tune-ssl-default-dh-param-to-1024-by-default
+> 
 > https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts
+> 
 > https://100things.wzzrd.com/2021/07/09/Loadbalanced-Ansible-Tower-Cluster.html
+> 
 > https://www.digitalocean.com/community/tutorial_series/common-haproxy-errors
+> 
 > https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/load_balancer_administration/install_haproxy_example1
