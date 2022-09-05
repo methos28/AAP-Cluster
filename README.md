@@ -1,4 +1,4 @@
-# AAP-Cluster Installation along with Load Balancer on RHEL 8
+# AAP-Cluster Installation along with Load Balancer and Postfix on RHEL 8
 
 Here in this cluster we have included 3 Controller nodes, 1 Database node and 2 Automation Hubs. You can create the cluster as per your requirements as well.
 To start with the installation lets go ahead and take a look at the Prerequisites we are going to need.
@@ -91,14 +91,16 @@ ANSIBLE_BECOME=true ./setup.sh (with HTTPS support)
 ```
 ANSIBLE_BECOME=true ./setup.sh -e nginx_disable_https=true -- -b (without HTTPS support)
 ```
-
-8. Only procceed further after successfull installtion.
+8. If there is any errors with related with 'pulp' directory, run add-hosts.yml and restart the installation.
+9. Only procceed further after successful installtion.
 
 
 ## Installing HAPROXY for Load Balancing
 
-After the successfull installation if you want you can set a load balancer in between them to redirect the incoming traffic.
+After the successful installation if you want you can set a load balancer in between them to redirect the incoming traffic.
 You need to run the aap-haproxy-fix.yml playbook on the controller nodes first before you edit the configuration file.
+
+> NOTE: Make sure that you have the IPs and Hostnames of your controller servers in the hosts file in /etc/hosts, If you do not add those servers in that file the load balancer will not work.
 
 ### Creating Self-Signed Certificate
 Enter Commands below:
@@ -117,27 +119,82 @@ Also make the neccessary changes into your ***HAPROXY.CFG*** file as the file ab
 ```
 systemctl enable haproxy
 ```
-After which you need to restart the system for which use ```init 6```
-> NOTE: Make sure that you have the IPs and Hostnames of your controller servers in the hosts file in /etc/hosts, If you do not add those servers in that file the load balancer will not work.
 
-## Installing Postfix for AAP Cluster Notifications over SMTP
-First you need to install postfix along with sasl and MailX for mail commands.
+Run aap-fix-haproxy.yml playbook and check if haproxy works.
+
+
+## Installing Postfix for AAP Cluster Notifications
+Installing Postfix
 ```
-yum install postfix cyrus-sasl-plain mailx
+yum install postfix
 ```
 
-To see if the postfix is installed or not as well as to see the configuration of postfix you can enter ```postconf``` in terminal.
+Installing SASL
+```
+yum install cyrus-sasl-plain
+```
 
-### Configuring the ***main.cf** 
+Installing Mailx for mail commands
+```
+yum install mailx
+```
+Postfix is now installed with the default configuration. 
+Use below command to see configs of postfix
+```
+postconf
+```
 
-The file location is ```/etc/postfix/main.cf```. Take a look at the file above in the repo named main.cf and as per the requirements modify it for yourself.
+## Configuring Postfix /etc/postfix/main.cf
 
-### Add Gmail Username and Password to Postfix
-To add your credentials you need to open or create ```/etc/postfix/sasl_passwd``` and add the content below with your details.
+Confirm that the myhostname parameter is configured with your server’s FQDN: Path is `/etc/postfix/main.cf` and parameter is
+```
+myhostname = fqdn.example.com
+```
+If not present then set one.
+
+Change the inet interfaces as below
+```
+inet_interfaces = all
+```
+```
+inet_protocols - all
+```
+
+Change my destination to respective hostnames
+```
+mydestination = dblb.prodevans.lan, localhost
+```
+
+Change mynetworks to your domain range
+```
+mynetworks = 192.168.1.0/24
+```
+
+
+Setup the following configs
+```
+relayhost = [smtp.gmail.com]:587
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+smtp_sasl_security_options = noanonymous
+message_size_limit = 20480000
+```
+Change 'may' to 'encrypt' for following command
+```
+smtp_tls_security_level = encrypt
+```
+
+Save the file and restart postfix
+```
+systemctl restart postfix.service
+```
+
+## Add Gmail Username and Password to Postfix
+Open or create the ```/etc/postfix/sasl_passwd``` file and add the SMTP Host, username, and password information:
 ```
 [smtp.gmail.com]:587 <youremail@gmail.com>:<yourgmailpassword>  
-```
-After which you need to create hash db file for the same
+``` 
+Save it and create the hash db file for Postfix by running the postmap command:
 ```
 sudo postmap /etc/postfix/sasl_passwd
 ```
@@ -148,19 +205,37 @@ sudo chown root:root /etc/postfix/sasl_passwd /etc/postfix/sasl_passwd.db
 ```
 sudo chmod 0600 /etc/postfix/sasl_passwd /etc/postfix/sasl_passwd.db
 ```
-now enable the postfix service using, 
+
+## Start and enable Postfix to run on system boot
 ```
-systemctl enable postfix
-```
-Restart it ,
-```
-systemctl restart postfix
+systemctl enable --now  postfix
 ```
 
-### Send a Test Mail using Postfix
+Check status of Postfix
 ```
-echo "Test Postfix Gmail SMTP Relay" | mail -s "Postfix Gmail SMTP Relay" youremail@gmail.com
+systemctl status postfix
 ```
+
+## Configuration on AAP side:
+
+Go to the AAP only after all the above successful configs.
+Under 'Administration' section, select 'Notifications' from left pane.
+Under 'Notification Templates', select `+` green icon to add a new template.
+
+Give a name. select organization and choose `Mail` in TYPE options.
+
+In `HOST`, enter the hostname of the machine.
+
+In `SENDER MAIL`, enter the mail from postfix configs.
+
+In `RECEPIENTS LIST`, enter the recepients emails one by one.
+
+In `PORT`, enter the port of postfix which is 25 in this case.
+
+In `EMAIL OPTIONS`, select `Use TLS`
+and save it and test it. It should be working fine.
+
+![image](https://user-images.githubusercontent.com/24843193/188405784-d2938157-de5c-4c97-9189-bd9f9884b5da.png)
 
 
  REF_LINKS :
