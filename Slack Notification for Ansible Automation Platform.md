@@ -24,6 +24,9 @@
 6. Click Save.
 7. Click Test Notification to verify it is successful.
 
+![image](https://user-images.githubusercontent.com/24843193/188406899-d1361e98-9b23-4422-9e94-38bae1754e9f.png)
+
+
 > References:
 >
 > https://docs.ansible.com/automation-controller/latest/html/userguide/notifications.html#slack
