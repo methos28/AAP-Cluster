@@ -1,0 +1,35 @@
+---
+- name: Updating hosts
+  hosts: all
+  become: true
+  tasks:
+
+          
+  - blockinfile:
+          path: /etc/hosts
+          block: |
+                192.168.1.10    controller1.prodevans.lan
+                192.168.1.20    controller2.prodevans.lan
+                192.168.1.30    controller3.prodevans.lan
+          
+                192.168.1.100   dblb.prodevans.lan
+
+                192.168.1.101   apah1.prodevans.lan
+                192.168.1.102   apah2.prodevans.lan
+
+                192.168.1.201   exec.prodevans.lan
+
+- name: Adding Pulp Files into Automation Hubs
+  hosts:
+    - 192.168.1.101
+    - 192.168.1.102
+  tasks:    
+        - name: Adding pulp path to Hosts
+          file:
+              path: /var/lib/pulp
+              state: directory
+              recurse: yes
+
+
+         
+

@@ -1,0 +1,39 @@
+---
+- name: AAP chnages for HAPROXY
+  hosts:
+      - 192.168.1.10
+      - 192.168.1.20
+      - 192.168.1.30
+  become: yes
+  vars:
+    remote_host_headers:
+      - HTTP_X_FORWARDED_FOR
+      - REMOTE_ADDR
+      - REMOTE_HOST
+  tasks:
+    
+  - name: configure tower remote host headers
+    awx.awx.settings:
+        name: REMOTE_HOST_HEADERS
+        value: "{{ remote_host_headers }}"
+        controller_host: http://127.0.0.1
+        controller_username: admin
+        controller_password: admin123
+    run_once: yes
+
+  handlers:
+  - name: Restart AAPs
+    ansible.builtin.service:
+        name: automation-controller
+        state: restarted
+
+  
+- name: Restarting HAPROXY
+  hosts: 192.168.1.100
+  become: yes
+  tasks:
+
+  - service:
+        name: haproxy
+        state: restarted
+
