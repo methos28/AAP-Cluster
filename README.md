@@ -24,7 +24,7 @@ Specs used for VMs in order to do the installation are,
   
 Kindly follow path as given below for smooth installation,
 
-1. [AAP Multi-Machine Cluster Installation](https://github.com/methos28/AAP-Cluster/edit/main/AAP%20multi-node%20cluster%20installation)
+1. [AAP Multi-Machine Cluster Installation](https://github.com/methos28/AAP-Cluster/edit/main/AAP%20multi-node%20cluster%20installation.md)
 2. [HAProxy Installation for Load Balancing](https://github.com/methos28/AAP-Cluster/blob/main/HAProxy%20Installation%20for%20Load%20Balancing.md)
 3. [Postfix Installation for AAP SMTP Notifications](https://github.com/methos28/AAP-Cluster/blob/main/Postfix%20Installation%20for%20AAP%20SMTP%20Notifications.md)
 4. [Slack Notification for Ansible Automation Platform](https://github.com/methos28/AAP-Cluster/blob/main/Slack%20Notification%20for%20Ansible%20Automation%20Platform.md)
