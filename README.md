@@ -8,7 +8,8 @@ To start with the installation lets go ahead and take a look at the Prerequisite
 | ------------- | ------------- |
 | 1.  | openssl |
 | 2.  | haproxy |
-| 3.  | curl/wget|
+| 3.  | curl |
+| 4.  | wget |
 | 4.  | vim |
 | 5.  | ansible |
 | 6.  | telnet |
