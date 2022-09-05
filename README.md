@@ -14,7 +14,9 @@ To start with the installation lets go ahead and take a look at the prerequisite
 | 4.  | vim |
 | 5.  | telnet |
 
-Everything is done on RHEL 8.6 (Minimal Installation) x86_64 on VMWare ESXi
+
+Everything is done on RHEL 8.6 (Minimal Installation) x86_64 on VMWare ESXi.
+
 Specs used for VMs in order to do the installation are,
 
 3 Controller nodes with 4C/8T | 8 GB RAM | 30GB SSD each.
