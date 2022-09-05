@@ -1,4 +1,4 @@
-# AAP-Cluster Installation along with Load Balancer and Postfix on RHEL 8
+# AAP-Cluster Installation along with Load Balancer, Postfix on RHEL 8
 
 Here in this cluster we have included 3 Controller nodes, 1 Database node and 2 Automation Hubs. You can create the cluster as per your requirements as well.
 To start with the installation lets go ahead and take a look at the Prerequisites we are going to need.
