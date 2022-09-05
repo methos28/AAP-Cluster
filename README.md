@@ -11,11 +11,23 @@ To start with the installation lets go ahead and take a look at the Prerequisite
 | 3.  | curl |
 | 4.  | wget |
 | 4.  | vim |
-| 5.  | ansible |
-| 6.  | telnet |
+| 5.  | telnet |
   
 ## Installation:
-After checking prerequistes lets turn to the Inventory File. I have uploaded it to the repo as well. 
+
+1. Do SSH login to VM.
+2. Update yum
+3. Make sure to add all IPs and their hostname to your 'hosts' file which is located in ```/etc/hosts```
+4. Download 'Ansible Automation Platform 2.2.0 Setup Bundle' of which version is '2.2 for RHEL 8' from https://access.redhat.com/downloads/content/480?extIdCarryOver=true&sc_cid=701f2000001OH7YAAW
+5. You'll need to use curl command inorder to download that bundle to VM.
+6. Extract the file and go to the directory of that AAP bundle.
+```
+tar xvzf <ansible_bundle_file>
+```
+```
+cd <ansible_bundle_files>
+```
+6. Follow the following inventory syntax for creating multi-machine cluster installation. 
 ```
 [automationcontroller]
 192.168.1.10 node_type=control
@@ -66,9 +78,13 @@ automationhub_pg_sslmode='prefer'
 
 ```
 
-Check the file and its format, You will have to add your servers IPs instead of the given ones.
-There are Two ways to install this cluster. Most preferred its with HTTPS, but you can install with HTTP as well
-> NOTE: Before you install your Cluster you need to run AAP-Fix.yml file to fix some possible errors that might come while installing the cluster.
+> NOTE : Check the file and its format, You will have to add your servers IPs/Hostnames instead of the given ones. Make sure to use either IPs or hostnames at a time as using both at the same time does not work well.
+> 
+> NOTE : There are Two ways to install this cluster. Most preferred one is with HTTPS, but you can install with HTTP as well if you want to run your AAPs and AHs on port 80 as internal port.
+> 
+> NOTE : Before you install your Cluster you need to run AAP-Fix.yml file to fix some possible errors that might come while installing the cluster.
+
+7. Install AAP using following command.
 ```
 ANSIBLE_BECOME=true ./setup.sh (with HTTPS support)
 ``` 
@@ -76,10 +92,12 @@ ANSIBLE_BECOME=true ./setup.sh (with HTTPS support)
 ANSIBLE_BECOME=true ./setup.sh -e nginx_disable_https=true -- -b (without HTTPS support)
 ```
 
+8. Only procceed further after successfull installtion.
+
 
 ## Installing HAPROXY for Load Balancing
 
-After the successfull installation if you want you can set a load balancer in between them to Redirect the incoming traffic.
+After the successfull installation if you want you can set a load balancer in between them to redirect the incoming traffic.
 You need to run the aap-haproxy-fix.yml playbook on the controller nodes first before you edit the configuration file.
 
 ### Creating Self-Signed Certificate
@@ -153,28 +171,3 @@ echo "Test Postfix Gmail SMTP Relay" | mail -s "Postfix Gmail SMTP Relay" yourem
   - https://www.digitalocean.com/community/tutorial_series/common-haproxy-errors
   - https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/load_balancer_administration/install_haproxy_example1
      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
