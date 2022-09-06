@@ -13,8 +13,9 @@
 9. In 'Client Secrets', click on 'Generate a new client secret'.
 10. Note down the 'Client secret' string, go below and click on 'Update application'.
   
-  ![image](https://user-images.githubusercontent.com/24843193/188623389-e48038ec-9df4-4681-86db-bcb91d6f6c7b.png)
-
+  ![image](https://user-images.githubusercontent.com/24843193/188623702-f72d66a6-d275-4cdd-86da-d1e785f49913.png)
+  
+  
   ![image](https://user-images.githubusercontent.com/24843193/188622353-df964388-ee19-4a9e-9d83-2627b0e0202d.png)
 
   
