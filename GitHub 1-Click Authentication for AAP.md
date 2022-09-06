@@ -33,3 +33,7 @@
   ![image](https://user-images.githubusercontent.com/24843193/188622659-d8b393a1-99fe-43b3-b504-b3efd67381f3.png)
 
 > Note: By default, the user role will be as normal user.
+
+> References:
+>
+> https://docs.ansible.com/automation-controller/latest/html/administration/social_auth.html
