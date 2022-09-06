@@ -1,4 +1,4 @@
-# Installing HAPROXY for Load Balancing
+# Installing HAProxy for Load Balancing
 
 After the successful installation if you want you can set a load balancer in between them to redirect the incoming traffic.
 You need to run the aap-haproxy-fix.yml playbook on the controller nodes first before you edit the configuration file.
