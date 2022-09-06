@@ -1,4 +1,4 @@
-# AAP-Multi-machine Cluster Installation along with Load Balancer, Postfix (SMTP) and Slack integration for AAP on RHEL 8
+# AAP-Multi-machine Cluster Installation and Setup
 
 Here in this multi-machine cluster, we have included 3 Controller nodes, 1 Database node, 2 Automation Hub nodes and an execution node. 
 You can create the cluster as per your requirements as well.
