@@ -12,6 +12,9 @@
 8. Go to 'Settings /Developer settings/<yourapp>', go to 'General' and note down 'Client ID'.
 9. In 'Client Secrets', click on 'Generate a new client secret'.
 10. Note down the 'Client secret' string, go below and click on 'Update application'.
+  
+  ![image](https://user-images.githubusercontent.com/24843193/188623389-e48038ec-9df4-4681-86db-bcb91d6f6c7b.png)
+
   ![image](https://user-images.githubusercontent.com/24843193/188622353-df964388-ee19-4a9e-9d83-2627b0e0202d.png)
 
   
@@ -25,6 +28,7 @@
 5. Enter your 'Client ID' in 'GitHub OAuth2 Key' field.
 6. Enter your 'Clinet secret' string in ''GitHub OAuth2 Secret' field.
 7. Click on 'Save' and test if it works.
+  
   ![image](https://user-images.githubusercontent.com/24843193/188622659-d8b393a1-99fe-43b3-b504-b3efd67381f3.png)
 
 > Note: By default, the user role will be as normal user.
