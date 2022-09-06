@@ -34,6 +34,7 @@ Kindly follow path as given below for smooth installation,
 2. [HAProxy Installation for Load Balancing](https://github.com/methos28/AAP-Cluster/blob/main/HAProxy%20Installation%20for%20Load%20Balancing.md)
 3. [Postfix Installation for AAP SMTP Notifications](https://github.com/methos28/AAP-Cluster/blob/main/Postfix%20Installation%20for%20AAP%20SMTP%20Notifications.md)
 4. [Slack Notification for Ansible Automation Platform](https://github.com/methos28/AAP-Cluster/blob/main/Slack%20Notification%20for%20Ansible%20Automation%20Platform.md)
+5. [GitHub 1-Click Authentication for AAP]()
 
 > References:
 >
