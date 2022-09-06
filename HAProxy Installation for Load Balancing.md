@@ -5,7 +5,7 @@ You need to run the aap-haproxy-fix.yml playbook on the controller nodes first b
 
 > NOTE: Make sure that you have the IPs and Hostnames of your controller servers in the hosts file in /etc/hosts, If you do not add those servers in that file the load balancer will not work.
 
-Install HAProdxy
+Install HAProxy
 ```
 yum install haproxy
 ```
