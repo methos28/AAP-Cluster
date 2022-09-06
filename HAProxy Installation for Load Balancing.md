@@ -16,21 +16,22 @@ cd /etc/haproxy/
 ```
 
 ## Creating Self-Signed Certificate
-Enter Commands below:
+```
+cd /etc/haproxy/
+```
 ```
 openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out ./myserver.crt -keyout ./myserver.key
 ```
 ```
 cat myserver.crt myserver.key > myserver.pem
 ```
-Along with that you need to enter this command as well.
 ```
 sudo openssl dhparam -out /etc/haproxy/dhparams.pem 2048
 ```
 
-Also make the neccessary changes into your ***HAPROXY.CFG*** file as the file above in the REPO, Enable the Service using :
+Also make the neccessary changes into your ***HAPROXY.CFG*** file as the file above in the Repo, enable the service using :
 ```
 systemctl enable haproxy
 ```
 
-Run aap-fix-haproxy.yml playbook and check if haproxy works.
+Run aap-fix-haproxy.yml playbook and check if HAProxy works.
