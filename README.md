@@ -49,3 +49,5 @@ Kindly follow path as given below for smooth installation,
 > https://www.digitalocean.com/community/tutorial_series/common-haproxy-errors
 > 
 > https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/load_balancer_administration/install_haproxy_example1
+>
+> https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.1/html-single/red_hat_ansible_automation_platform_automation_mesh_guide/index
