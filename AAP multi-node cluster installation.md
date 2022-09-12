@@ -69,12 +69,14 @@ automationhub_pg_sslmode='prefer'
 > 
 > NOTE : Before you install your Cluster you need to run AAP-Fix.yml file to fix some possible errors that might come while installing the cluster.
 
-7. Install AAP using following command.
+7. Create ```/var/lib/pulp``` in Private Automation Hub node
+
+8. Install AAP using following command.
 ```
 ANSIBLE_BECOME=true ./setup.sh (with HTTPS support)
 ``` 
 ```
 ANSIBLE_BECOME=true ./setup.sh -e nginx_disable_https=true -- -b (without HTTPS support)
 ```
-8. If there is any errors with related with 'pulp' directory, run add-hosts.yml and restart the installation.
-9. Only procceed further after successful installtion.
+9. If there is any errors with related with 'pulp' directory, run add-hosts.yml and restart the installation.
+10. Only procceed further after successful installtion.
