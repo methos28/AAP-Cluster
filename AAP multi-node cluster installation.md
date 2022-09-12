@@ -78,5 +78,8 @@ ANSIBLE_BECOME=true ./setup.sh (with HTTPS support)
 ```
 ANSIBLE_BECOME=true ./setup.sh -e nginx_disable_https=true -- -b (without HTTPS support)
 ```
-9. If there is any errors with related with 'pulp' directory, run add-hosts.yml and restart the installation.
+
+9. Now you might get error, then follow this resolution
+https://access.redhat.com/solutions/6970135
+
 10. Only procceed further after successful installtion.
