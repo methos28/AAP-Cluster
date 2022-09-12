@@ -82,4 +82,6 @@ ANSIBLE_BECOME=true ./setup.sh -e nginx_disable_https=true -- -b (without HTTPS 
 9. Now you might get error, then follow this resolution
 https://access.redhat.com/solutions/6970135
 
-10. Only procceed further after successful installtion.
+10. Now just rerun the setup once again for enjoyment.
+
+11. Only procceed further after successful installtion.
