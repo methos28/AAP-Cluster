@@ -70,6 +70,21 @@ Open or create the ```/etc/postfix/sasl_passwd``` file and add the SMTP Host, us
 ```
 [smtp.gmail.com]:587 <youremail@gmail.com>:<yourgmailpassword>  
 ``` 
+
+### For password without 2FA (Not recommended)
+Just enter the password as it is in ```/etc/postfix/sasl_passwd/```
+
+### For password with 2FA (Recommended)
+
+1. Go to Google and sign in with your Gmail account.
+2. Click on your profile present on right upper side corner.
+3. Click on 'Manage your Google Account'.
+4. On the left pane, select 'Security'.
+5. Scroll down to 'Signing in to Google' section.
+6. In that, assuming you have 2FA activated, click on 'App passwords'.
+7. In 'Select App', select 'Other' and give name as 'Postfix' and click on 'GENERATE'.
+8. The new app password will be generated. It will be shown for once so copy it and use it for 'sasl_passwd'.
+
 Save it and create the hash db file for Postfix by running the postmap command:
 ```
 sudo postmap /etc/postfix/sasl_passwd
@@ -87,9 +102,24 @@ sudo chmod 0600 /etc/postfix/sasl_passwd /etc/postfix/sasl_passwd.db
 systemctl enable --now  postfix
 ```
 
+Add SMTP service to firewall-cmd
+```
+firewall-cmd --permanent --add-service=smtp
+```
+
 Check status of Postfix
 ```
 systemctl status postfix
+```
+
+## Send a Test Mail to Verify Postfix Gmail SMTP Relay
+```
+echo "Test Postfix Gmail SMTP Relay" | mail -s "Postfix Gmail SMTP Relay" youremail@gmail.com
+```
+
+To see if mailing is working, use following command
+```
+tail -f /vat/log/maillog
 ```
 
 ## Configuration on AAP side:
