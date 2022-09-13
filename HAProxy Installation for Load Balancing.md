@@ -31,7 +31,7 @@ sudo openssl dhparam -out /etc/haproxy/dhparams.pem 2048
 
 Also make the neccessary changes into your [haproxy.cfg](https://github.com/methos28/AAP-Cluster/blob/main/haproxy.cfg) file as the file above in the Repo, enable the service using :
 ```
-systemctl enable haproxy
+systemctl enable --now haproxy
 ```
 
 Run aap-fix-haproxy.yml playbook and check if HAProxy works.
