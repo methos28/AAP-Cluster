@@ -35,3 +35,7 @@ systemctl enable haproxy
 ```
 
 Run aap-fix-haproxy.yml playbook and check if HAProxy works.
+
+
+> References:
+> https://www.digitalocean.com/community/tutorials/how-to-configure-haproxy-logging-with-rsyslog-on-centos-8-quickstart
