@@ -18,13 +18,13 @@ Everything is done on RHEL 8.6 (Minimal Installation) x86_64 on VMWare ESXi.
 
 Specs used for VMs in order to do the installation are,
 
-3 Controller nodes with 4C/8T | 8 GB RAM | 30GB SSD each.
+3 Controller nodes with 4C/4T | 8 GB RAM | 30GB SSD each.
 
-2 Ansible Automation Hub nodes with 4C/8T | 8 GB RAM | 30 GB HDD each.
+2 Ansible Automation Hub nodes with 4C/4T | 8 GB RAM | 30 GB HDD each.
 
-1 Database node with 2C/4T | 4 GB RAM | 30 GB HDD
+1 Database node with 4C/4T | 4 GB RAM | 30 GB HDD
 
-1 Execution node with 2C/4T | 4 GB RAM | 30 GB HDD
+1 Execution node with 4C/4T | 4 GB RAM | 30 GB HDD
 
   
 Kindly follow path as given below for smooth installation,
