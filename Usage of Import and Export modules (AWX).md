@@ -17,6 +17,11 @@ Check version of awx
 ansible-galaxy collection list
 ```
 
+Playbook used:
+
+[exporting_template.yml](https://github.com/omkardamame/AAP-Cluster/blob/main/exporting_template.yml)
+
+
 > References: 
 > 
 > https://docs.ansible.com/ansible/latest/collections/awx/awx/export_module.html#ansible-collections-awx-awx-export-module
