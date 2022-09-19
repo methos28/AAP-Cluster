@@ -27,3 +27,5 @@ Playbook used:
 > https://docs.ansible.com/ansible/latest/collections/awx/awx/export_module.html#ansible-collections-awx-awx-export-module
 > 
 > https://docs.ansible.com/ansible/latest/collections/awx/awx/import_module.html#ansible-collections-awx-awx-import-module
+>
+> https://galaxy.ansible.com/awx/awx
