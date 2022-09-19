@@ -34,6 +34,7 @@ Kindly follow path as given below for smooth installation,
 3. [Postfix Installation for AAP SMTP Notifications](https://github.com/methos28/AAP-Cluster/blob/main/Postfix%20Installation%20for%20AAP%20SMTP%20Notifications.md)
 4. [Slack Notification for Ansible Automation Platform](https://github.com/methos28/AAP-Cluster/blob/main/Slack%20Notification%20for%20Ansible%20Automation%20Platform.md)
 5. [GitHub 1-Click Authentication for AAP](https://github.com/methos28/AAP-Cluster/blob/main/GitHub%201-Click%20Authentication%20for%20AAP.md)
+6. [Usage of Import and Export modules (AWX)](https://github.com/omkardamame/AAP-Cluster/blob/main/Usage%20of%20Import%20and%20Export%20modules%20(AWX).md)
 
 > References:
 >
