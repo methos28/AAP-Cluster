@@ -1,0 +1,92 @@
+---
+- name: Exporting template using awx.awx 
+  hosts: 192.168.1.10
+  vars:
+      ansible_python_interpreter: /usr/bin/python3.9
+      remote_user: root
+  tasks:
+
+  - name: Export Organization
+    awx.awx.export:
+        controller_host: 192.168.1.40
+        controller_username: admin
+        controller_password: admin123
+        organizations: "BLR"
+        validate_certs: False
+    register: export_org
+
+  - name: Export Creds
+    awx.awx.export:
+        controller_host: 192.168.1.40
+        controller_username: admin
+        controller_password: admin123
+        credentials: "BLR_INV_CRD"
+        validate_certs: False
+    register: export_creds
+    
+  - name: Export Inventory
+    awx.awx.export:
+        controller_host: 192.168.1.40
+        controller_username: admin
+        controller_password: admin123
+        inventory : "BLR_INV"
+        validate_certs: False
+    register: export_inv
+
+  - name: Export Projects
+    awx.awx.export:
+        controller_host: 192.168.1.40
+        controller_username: admin
+        controller_password: admin123
+        projects: "AnsibleRepo_Prasad"
+        validate_certs: False
+    register: export_proj
+
+  - name: Export Template
+    awx.awx.export:
+        controller_host: 192.168.1.40
+        controller_username: admin
+        controller_password: admin123
+        job_templates: "PING_TEST"
+        validate_certs: False
+    register: export_temp
+
+  - name: Import Organization
+    awx.awx.import:
+        controller_host: 192.168.1.10
+        controller_username: admin
+        controller_password: admin123
+        validate_certs: False
+        assets: "{{ export_org.assets }}"
+
+  - name: Import Creds
+    awx.awx.import:
+        controller_host: 192.168.1.10
+        controller_username: admin
+        controller_password: admin123
+        validate_certs: False
+        assets: "{{ export_creds.assets }}"
+
+  - name: Import Inventory
+    awx.awx.import:
+        controller_host: 192.168.1.10
+        controller_username: admin
+        controller_password: admin123
+        validate_certs: False
+        assets: "{{ export_inv.assets }}"
+
+  - name: Import Project
+    awx.awx.import:
+        controller_host: 192.168.1.10
+        controller_username: admin
+        controller_password: admin123
+        validate_certs: False
+        assets: "{{ export_proj.assets }}"
+ 
+  - name: Import template
+    awx.awx.import:
+        controller_host: 192.168.1.10
+        controller_username: admin
+        controller_password: admin123
+        validate_certs: False
+        assets: "{{ export_temp.assets }}"
