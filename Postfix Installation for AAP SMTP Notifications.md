@@ -119,13 +119,13 @@ echo "Test Postfix Gmail SMTP Relay" | mail -s "Postfix Gmail SMTP Relay" yourem
 
 To see if mailing is working, use following command
 ```
-tail -f /vat/log/maillog
+tail -f /var/log/maillog
 ```
 
 ## Configuration on AAP side:
 
 Go to the AAP only after all the above successful configs.
-Under 'Administration' section, select 'Notifications' from left pane.
+Under the 'Administration' section, select 'Notifications' from left the pane.
 Under 'Notification Templates', select `+` green icon to add a new template.
 
 Give a name. select organization and choose `Mail` in TYPE options.
