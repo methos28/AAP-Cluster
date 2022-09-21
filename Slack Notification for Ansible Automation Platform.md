@@ -30,5 +30,7 @@
 > References:
 >
 > https://docs.ansible.com/automation-controller/latest/html/userguide/notifications.html#slack
+> 
 > https://access.redhat.com/solutions/2999831
+> 
 > https://access.redhat.com/solutions/3991231

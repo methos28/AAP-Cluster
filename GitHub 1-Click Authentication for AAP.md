@@ -24,15 +24,15 @@
   
 1. Login as 'admin' on AAP.
 2. Scroll down to left pane and go to 'Settings'
-3. In 'Authentication' section, click on 'GitHub settings'.
+3. In the 'Authentication' section, click on 'GitHub settings'.
 4. Go to 'GitHub Default' and click on 'Edit'.
-5. Enter your 'Client ID' in 'GitHub OAuth2 Key' field.
-6. Enter your 'Clinet secret' string in ''GitHub OAuth2 Secret' field.
+5. Enter your 'Client ID' in the 'GitHub OAuth2 Key' field.
+6. Enter your 'Client secret' string in ''GitHub OAuth2 Secret' field.
 7. Click on 'Save' and test if it works.
   
   ![image](https://user-images.githubusercontent.com/24843193/188622659-d8b393a1-99fe-43b3-b504-b3efd67381f3.png)
 
-> Note: By default, the user role will be as normal user.
+> Note: By default, the user role will be as a normal user.
 
 > References:
 >
